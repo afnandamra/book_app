@@ -10,9 +10,10 @@
 
 <body>
     <% books.forEach(book=>{ %>
-        <li>
-            <%= book.img %>
-        </li>
+        <img src=<%= book.img %> alt="">
+        <h2><%= book.title %></h2>
+        <h3><%= book.authors %></h3>
+        <p><%= book.description %></p>
         <% }) %>
 
 </body>

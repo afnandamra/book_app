@@ -58,17 +58,17 @@ Estimate of time needed to complete: 30 minutes
 
 Start time: 7:30pm
 
-Finish time: 
+Finish time: 7:45pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 15 min
 
 #### Feature 5: Error
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 15 minutes
 
-Start time: 
+Start time: 7:45 pm
 
-Finish time: 
+Finish time: 8:00 pm
 
 Actual time needed to complete:
 

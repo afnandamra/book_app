@@ -49,7 +49,7 @@ function searchResult(req, res) {
         .then(bookData => {
             console.log(bookData);
             let bookArr = bookData.body.items.map(value => new Book(value));
-            res.send(bookArr);
+            // res.send(bookArr);
             res.render('pages/searches/show', { books: bookArr });
         })
     // .catch(()=>{ 
