@@ -23,11 +23,18 @@ server.use(cors());
 server.use(express.static('./public'));
 server.use(express.urlencoded({ extended: true }));
 server.set('view engine', 'ejs');
+server.get('/searches/new' , handleSearch);
 
 server.get('/', (req, res) => {
     console.log(req.body);
     res.render('pages/index');
 })
+
+
+// handleSearch fun
+function handleSearch(req,res){
+    res.render('pages/searches/new');
+}
 
 server.listen(PORT, () => {
     console.log(`listening on ${PORT}`)
