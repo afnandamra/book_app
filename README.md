@@ -9,7 +9,7 @@
 This project is an online library, where you can find books based on a title or author name.
 
 ## Getting Started
-[Deployed Site]()
+[Deployed Site](https://ab-ad-lm-booklist.herokuapp.com/)
 if you want to clone the project make sure to install required libraries `npm i express cors superagent ejs dotenv pg`.
 
 ## Architecture
@@ -51,6 +51,26 @@ Start time: 4:15pm
 Finish time: 6:00pm
 
 Actual time needed to complete: 1 hour 45 minutes
+
+#### Feature 4: Render Search result
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 7:30pm
+
+Finish time: 
+
+Actual time needed to complete: 
+
+#### Feature 5: Error
+
+Estimate of time needed to complete: 
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete:
 
 ### Lab 12 : 1-3-2021
 01-03-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
