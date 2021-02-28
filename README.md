@@ -22,35 +22,35 @@ if you want to clone the project make sure to install required libraries `npm i 
 ### Lab 11 : 28-2-2021
 28-02-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
 
-#### Feature 1: 
+#### Feature 1: Test & Deploy
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 30 minutes
 
-Start time: 
+Start time: 3:30pm
 
-Finish time: 
+Finish time: 4:00pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 30 minutes
 
-#### Feature 2: 
+#### Feature 2: Search Form
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 15 minutes
 
-Start time: 
+Start time: 4:00pm
 
-Finish time: 
+Finish time: 4:15pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 15 minutes
 
-#### Feature 3: 
+#### Feature 3: Show Search result
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 1 hour
 
-Start time: 
+Start time: 4:15pm
 
-Finish time: 
+Finish time: 6:00pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hour 45 minutes
 
 ### Lab 12 : 1-3-2021
 01-03-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
