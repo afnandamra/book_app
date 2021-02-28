@@ -2,6 +2,7 @@
 
 // Application Dependencies
 const express = require('express');
+const server = express();
 //CORS = Cross Origin Resource Sharing
 const cors = require('cors');
 //DOTENV (read our enviroment variable)
@@ -16,7 +17,6 @@ const superagent = require('superagent');
 
 //Application Setup
 const PORT = process.env.PORT || 3030;
-const server = express();
 
 
 server.use(cors());
@@ -26,7 +26,7 @@ server.set('view engine', 'ejs');
 
 server.get('/', (req, res) => {
     console.log(req.body);
-    res.render('/pages/index');
+    res.render('pages/index');
 })
 
 server.listen(PORT, () => {
