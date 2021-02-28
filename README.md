@@ -1,6 +1,6 @@
 # Book App Application
 
-**Author**: Afnan Damra - 
+**Author**: Afnan Damra - Abdalrhman Albdahat - Lina Al-mashaikh
 **Version:**
 * 1.0.0 - 28-2-2021 - 
 

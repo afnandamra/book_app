@@ -22,6 +22,12 @@ const server = express();
 server.use(cors());
 server.use(express.static('./public'));
 server.use(express.urlencoded({ extended: true }));
+server.set('view engine', 'ejs');
+
+server.get('/', (req, res) => {
+    console.log(req.body);
+    res.render('/pages/index');
+})
 
 server.listen(PORT, () => {
     console.log(`listening on ${PORT}`)
