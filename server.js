@@ -24,7 +24,7 @@ server.use(express.static('./public'));
 server.use(express.urlencoded({ extended: true }));
 server.set('view engine', 'ejs');
 
-// server.use(errorHandler);
+// server.use('/error', errorHandler);
 
 // Route definitions
 server.get('/searches/new', handleSearch);
@@ -48,19 +48,24 @@ function searchResult(req, res) {
     if (req.body.searchBy === 'author') {
         url = `https://www.googleapis.com/books/v1/volumes?q=${search}+inauthor`;
     }
+    console.log(url);
     superagent.get(url)
         .then(bookData => {
             let bookArr = bookData.body.items.map(value => new Book(value));
             // res.send(bookArr);
             res.render('pages/searches/show', { books: bookArr });
         })
-    // .catch(()=>{ 
-
-    // })
+        .catch(() => {
+            errorHandler(error);
+        })
 }
 
-// function errorHandler(error, req, res){
-//     res.status(500).send( error);
+// function errorHandler(error, req, res) {
+//     let errObj = {
+//         status: 500,
+//         error: error.message
+//     }
+//     res.render('pages/error', { error: errObj });
 // }
 
 // Book constructor

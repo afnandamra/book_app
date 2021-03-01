@@ -2,7 +2,7 @@
 
 **Author**: Afnan Damra - Abdalrhman Albdahat - Lina Al-mashaikh
 **Version:**
-* 1.0.0 - 28-2-2021 - 
+* 1.0.0 - 28-2-2021 - search form and results
 
 
 ## Overview
@@ -20,7 +20,7 @@ if you want to clone the project make sure to install required libraries `npm i 
 ## Change Log
 
 ### Lab 11 : 28-2-2021
-28-02-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
+28-02-2021 8:00pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
 
 #### Feature 1: Test & Deploy
 

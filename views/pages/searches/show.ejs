@@ -8,18 +8,24 @@
     <link rel="shortcut icon" href="https://www.freeiconspng.com/uploads/book-icon--icon-search-engine-6.png"
         type="image/x-icon">
     <title>Search results</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
     <% books.forEach(book=>{ %>
         <div class="card">
-            <img src=<%= book.img %> alt="">
-            <h2><%= book.title %></h2>
-            <h3><%= book.authors %></h3>
-            <p><%= book.description %></p>
+            <img src=<%=book.img %> alt="">
+            <h2>
+                <%= book.title %>
+            </h2>
+            <h3>
+                <%= book.authors %>
+            </h3>
+            <p>
+                <%= book.description %>
+            </p>
         </div>
-    <% }) %>
+        <% }) %>
 </body>
 
 </html>
