@@ -43,11 +43,12 @@ function handleSearch(req, res) {
 function searchResult(req, res) {
     console.log(req.body);
     let search = req.body.search;
+    let searchBy = req.body.searchBy;
 
-    let url = `https://www.googleapis.com/books/v1/volumes?q=${search}+intitle`;
-    if (req.body.searchBy === 'author') {
-        url = `https://www.googleapis.com/books/v1/volumes?q=${search}+inauthor`;
-    }
+    let url = `https://www.googleapis.com/books/v1/volumes?q=+${searchBy}:${search}`;
+    // if (req.body.searchBy === 'author') {
+    //     url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${search}`;
+    // }
     console.log(url);
     superagent.get(url)
         .then(bookData => {
