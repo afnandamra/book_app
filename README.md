@@ -1,8 +1,9 @@
 # Book App Application
 
-**Author**: Afnan Damra - Abdalrhman Albdahat - Lina Al-mashaikh
+**Authors**: Afnan Damra - Abdalrhman Albdahat - Lina Al-mashaikh
 **Version:**
-* 1.0.0 - 28-2-2021 - search form and results
+* 1.0.0 - 28-02-2021 - search form and results
+* 2.0.0 - 01-03-2021 - Save Books to Database
 
 
 ## Overview
@@ -70,40 +71,10 @@ Start time: 7:45 pm
 
 Finish time: 8:00 pm
 
-Actual time needed to complete:
+Actual time needed to complete: 15 minutes
 
 ### Lab 12 : 1-3-2021
-01-03-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
-
-#### Feature 1: 
-
-Estimate of time needed to complete: 
-
-Start time: 
-
-Finish time: 
-
-Actual time needed to complete: 
-
-#### Feature 2: 
-
-Estimate of time needed to complete: 
-
-Start time: 
-
-Finish time: 
-
-Actual time needed to complete: 
-
-#### Feature 3: 
-
-Estimate of time needed to complete: 
-
-Start time: 
-
-Finish time: 
-
-Actual time needed to complete:
+01-03-2021 8:00pm - Application now has a fully-functional express server, with a GET route for the home page and the search form, with ability to add and get to/from database.
 
 ### Lab 13 : 2-3-2021
 02-03-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
@@ -172,5 +143,5 @@ Finish time:
 Actual time needed to complete:
 
 ## Credits and Collaborations
-- 
+- Copied hamburger menu from (this site)[https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/]
 

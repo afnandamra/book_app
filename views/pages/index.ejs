@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://www.freeiconspng.com/uploads/book-icon--icon-search-engine-6.png"
-        type="image/x-icon">
-    <title>Book App</title>
-    <link rel="stylesheet" href="/styles/style.css">
-</head>
+<%- include('../layout/head') %>
 
-<body>
-    <h1>Hello Books</h1>
-</body>
+    <body>
+        <%- include('../layout/header') %>
+            <main>
+                <p>
+                    Total Books: <%= bookList.length %>
+                </p>
+                <% bookList.forEach(book=> { %>
+                    <div class="card">
+                        <img src='<%=book.img %>' alt="Book Cover">
+                        <h2>
+                            <%= book.title %>
+                        </h2>
+                        <h3>
+                            <%= book.author %>
+                        </h3>
+                        <a href="/books/<%= book.id %>">View Details</a>
+                    </div>
+                    <% }) %>
+            </main>
+        <%- include('../layout/footer') %>
+
+    </body>
 
 </html>

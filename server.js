@@ -11,8 +11,8 @@ require('dotenv').config();
 const superagent = require('superagent');
 
 // postgresql
-// const pg = require('pg');
-// const client = new pg.Client(process.env.DATABASE_URL);
+const pg = require('pg');
+const client = new pg.Client(process.env.DATABASE_URL);
 
 
 //Application Setup
@@ -24,15 +24,37 @@ server.use(express.static('./public'));
 server.use(express.urlencoded({ extended: true }));
 server.set('view engine', 'ejs');
 
-// server.use('/error', errorHandler);
+// server.use(errorHandler);
 
 // Route definitions
-server.get('/searches/new', handleSearch);
+server.get('/', homeRoute);
+server.get('/new', handleSearch);
 server.post('/searches', searchResult);
+server.get('/books/:bookID', bookDetails);
+server.post('/books', bookAdd);
 
-server.get('/', (req, res) => {
-    res.render('pages/index');
-})
+// Home route
+function homeRoute(req, res) {
+    let SQL = `SELECT * FROM books;`;
+    client.query(SQL)
+        .then(allBooks => {
+            res.render('pages/index', { bookList: allBooks.rows });
+        })
+        .catch(() => {
+            errorHandler(`Sorry, we're having some error in getting your books!`, req, res);
+        })
+}
+
+function bookDetails(req, res) {
+    let SQL = `SELECT * from books WHERE id=${req.params.bookID};`;
+    client.query(SQL)
+        .then(result => {
+            res.render('pages/books/show', { book: result.rows[0] })
+        })
+        .catch(() => {
+            errorHandler(`Sorry, we're having some error in getting you more details!`, req, res);
+        })
+}
 
 // Show form function
 function handleSearch(req, res) {
@@ -41,42 +63,58 @@ function handleSearch(req, res) {
 
 // searchResult function
 function searchResult(req, res) {
-    console.log(req.body);
     let search = req.body.search;
     let searchBy = req.body.searchBy;
-
     let url = `https://www.googleapis.com/books/v1/volumes?q=+${searchBy}:${search}`;
-    // if (req.body.searchBy === 'author') {
-    //     url = `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${search}`;
-    // }
-    console.log(url);
     superagent.get(url)
         .then(bookData => {
             let bookArr = bookData.body.items.map(value => new Book(value));
-            // res.send(bookArr);
             res.render('pages/searches/show', { books: bookArr });
         })
         .catch(() => {
-            errorHandler(error);
+            errorHandler(`Sorry, we're having some error in finding what you're searching for!`, req, res);
         })
 }
 
-// function errorHandler(error, req, res) {
-//     let errObj = {
-//         status: 500,
-//         error: error.message
-//     }
-//     res.render('pages/error', { error: errObj });
-// }
+// Add book to database
+function bookAdd(req, res) {
+    let SQL = `INSERT INTO books (title, author, description, img, isbn, shelf)
+    VALUES($1,$2,$3,$4,$5,$6) RETURNING id;`
+    let values = [req.body.title, req.body.author, req.body.description, req.body.img, req.body.isbn, req.body.shelf];
+    client.query(SQL, values)
+        .then(result => {
+            res.redirect(`/books/${result.rows[0].id}`);
+        })
+        .catch(() => {
+            errorHandler(`Sorry, we're having some error in finding this book!`, req, res);
+        })
+}
+
+server.get('*', (req, res) => {
+    res.status(404).send('This route does not exist')
+});
+
+function errorHandler(error, req, res) {
+    let errObj = {
+        status: 500,
+        error: error
+    }
+    res.render('pages/error', { error: errObj });
+}
 
 // Book constructor
 function Book(data) {
     this.title = (data.volumeInfo.title) ? data.volumeInfo.title : `Title unavilable`;
-    this.authors = (Array.isArray(data.volumeInfo.authors)) ? data.volumeInfo.authors.join(', ') : `Author unavilable`;
+    this.author = (Array.isArray(data.volumeInfo.authors)) ? data.volumeInfo.authors.join(', ') : `Unknown Author`;
     this.description = (data.volumeInfo.description) ? data.volumeInfo.description : `description unavilable`;
     this.img = (data.volumeInfo.imageLinks) ? data.volumeInfo.imageLinks.thumbnail : `https://i.imgur.com/J5LVHEL.jpg`;
+    this.isbn = (data.volumeInfo.industryIdentifiers) ? data.volumeInfo.industryIdentifiers[0].identifier : `Unknown ISBN`;
+    this.shelf = (data.volumeInfo.categories) ? data.volumeInfo.categories : `The book is not in a shelf`;
 }
 
-server.listen(PORT, () => {
-    console.log(`listening on ${PORT}`);
-})
+client.connect()
+    .then(() => {
+        server.listen(PORT, () => {
+            console.log(`listening on ${PORT}`);
+        })
+    })
