@@ -13,8 +13,8 @@ const methodOverride = require('method-override');
 
 // postgresql
 const pg = require('pg');
-// const client = new pg.Client(process.env.DATABASE_URL);
-const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
+const client = new pg.Client(process.env.DATABASE_URL);
+// const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
 
 //Application Setup
 const PORT = process.env.PORT || 3030;
@@ -111,9 +111,9 @@ function updateBook(req, res) {
 
 // delete a book from DB
 function deleteBook(req, res) {
-    let SQL = `DELETE * FROM books WHERE id=$1;`;
-    let value = req.params.bookID;
-    client.query(SQL, value)
+    let SQL = `DELETE FROM books WHERE id=$1;`;
+    let values = req.params.bookID;
+    client.query(SQL, values)
         .then(() => {
             res.redirect(`/`);
         })
