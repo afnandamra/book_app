@@ -1,3 +1,9 @@
+<style>
+    input {
+        width: 35%;
+    }
+</style>
+
 <section class="card">
     <img src='<%=book.img %>' alt="Book Cover">
     <h2>
@@ -15,4 +21,26 @@
     <p>
         Bookshelf: <%= book.shelf %>
     </p>
+    <div>
+        <form>
+            <button type='button' onclick="toggleEdit()">Update Details</button>
+        </form>
+        <form action="/books/<%= book.id %>?_method=DELETE" method='POST'>
+            <button type="submit">Delete Book</button>
+        </form>
+    </div>
+    <div id='editBook'>
+        <%- include('edit')-%>
+    </div>
 </section>
+
+<script>
+    function toggleEdit() {
+        var x = document.getElementById("editBook");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>

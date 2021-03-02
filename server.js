@@ -9,6 +9,7 @@ const cors = require('cors');
 require('dotenv').config();
 // Superagent
 const superagent = require('superagent');
+const methodOverride = require('method-override');
 
 // postgresql
 const pg = require('pg');
@@ -18,7 +19,7 @@ const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: 
 //Application Setup
 const PORT = process.env.PORT || 3030;
 
-
+server.use(methodOverride('_method'));
 server.use(cors());
 server.use(express.static('./public'));
 server.use(express.urlencoded({ extended: true }));
@@ -32,6 +33,9 @@ server.get('/new', handleSearch);
 server.post('/searches', searchResult);
 server.get('/books/:bookID', bookDetails);
 server.post('/books', bookAdd);
+server.put('/books/:bookID', updateBook);
+server.delete('/books/:bookID', deleteBook);
+
 
 // Home route
 function homeRoute(req, res) {
@@ -79,7 +83,7 @@ function searchResult(req, res) {
 // Add book to database
 function bookAdd(req, res) {
     let SQL = `INSERT INTO books (title, author, description, img, isbn, shelf)
-    VALUES($1,$2,$3,$4,$5,$6) RETURNING id;`
+    VALUES($1,$2,$3,$4,$5,$6) RETURNING id;`;
     let values = [req.body.title, req.body.author, req.body.description, req.body.img, req.body.isbn, req.body.shelf];
     client.query(SQL, values)
         .then(result => {
@@ -89,6 +93,35 @@ function bookAdd(req, res) {
             errorHandler(`Sorry, we're having some error in finding this book!`, req, res);
         })
 }
+
+// update book in the db
+function updateBook(req, res) {
+    console.log(req.body);
+    let SQL = `UPDATE books SET title=$1, author=$2, description=$3, img=$4, isbn=$5, shelf=$6
+    WHERE id=$7;`
+    let values = [req.body.title, req.body.author, req.body.description, req.body.img, req.body.isbn, req.body.shelf, req.params.bookID];
+    client.query(SQL, values)
+        .then(() => {
+            res.redirect(`/books/${req.params.bookID}`);
+        })
+        .catch(() => {
+            errorHandler(`Sorry, we're having some error editing this book!`, req, res);
+        })
+}
+
+// delete a book from DB
+function deleteBook(req, res) {
+    let SQL = `DELETE * FROM books WHERE id=$1;`;
+    let value = req.params.bookID;
+    client.query(SQL, value)
+        .then(() => {
+            res.redirect(`/`);
+        })
+        .catch(() => {
+            errorHandler(`Sorry, we're having some error deleting this book!`, req, res);
+        })
+}
+
 
 server.get('*', (req, res) => {
     res.status(404).send('This route does not exist')

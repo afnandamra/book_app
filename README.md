@@ -11,7 +11,7 @@ This project is an online library, where you can find books based on a title or 
 
 ## Getting Started
 [Deployed Site](https://ab-ad-lm-booklist.herokuapp.com/)
-if you want to clone the project make sure to install required libraries `npm i express cors superagent ejs dotenv pg`.
+if you want to clone the project make sure to install required libraries `npm i express cors superagent ejs dotenv pg method-override`.
 
 ## Architecture
 - EJS - CSS - JavaScript fore the front-end
@@ -77,37 +77,27 @@ Actual time needed to complete: 15 minutes
 01-03-2021 8:00pm - Application now has a fully-functional express server, with a GET route for the home page and the search form, with ability to add and get to/from database.
 
 ### Lab 13 : 2-3-2021
-02-03-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
+02-03-2021 2:30pm - Application now has a fully-functional express server, with a GET route for the home page and the search form, with the ability to update and delete your data in/from database.
 
-#### Feature 1: 
+#### Feature 1: UPDATE
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 30 minutes
 
-Start time: 
+Start time: 1:00pm
 
-Finish time: 
+Finish time: 2:00pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hour
 
-#### Feature 2: 
+#### Feature 2: DELETE
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 15 minutes
 
-Start time: 
+Start time: 2:15pm
 
-Finish time: 
+Finish time: 2:20pm
 
-Actual time needed to complete: 
-
-#### Feature 3: 
-
-Estimate of time needed to complete: 
-
-Start time: 
-
-Finish time: 
-
-Actual time needed to complete:
+Actual time needed to complete: 5 minutes
 
 ### Lab 14 : 3-3-2021
 03-03-2021 pm - Application now has a fully-functional express server, with a GET route for the home page and the search form.
@@ -143,5 +133,4 @@ Finish time:
 Actual time needed to complete:
 
 ## Credits and Collaborations
-- Copied hamburger menu from (this site)[https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/]
-
+- Copied hamburger menu from [this site](https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/)
