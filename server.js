@@ -111,10 +111,12 @@ function updateBook(req, res) {
 
 // delete a book from DB
 function deleteBook(req, res) {
-    let SQL = `DELETE FROM books WHERE id=$1;`;
-    let values = req.params.bookID;
+    let SQL = 'DELETE FROM books WHERE id=$1;';
+    let values = [req.params.bookID];
+    console.log(req.params.bookID);
     client.query(SQL, values)
         .then(() => {
+            console.log(values);
             res.redirect(`/`);
         })
         .catch(() => {
