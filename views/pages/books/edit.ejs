@@ -1,0 +1,19 @@
+<form action="/books/<%= book.id %>?_method=PUT" method="POST">
+    <br>
+
+    <input id="img" type="text" name="img" value="<%= book.img %>" /><br><br>
+
+    <input id="title" type="text" name="title" value="<%= book.title %>" /><br><br>
+
+    <input id="author" type="text" name="author" value="<%= book.author %>" /><br><br>
+
+    <input id="isbn" type="text" name="isbn" value="<%= book.isbn %>" /><br><br>
+
+    <input id="shelf" type="text" name="shelf" value="<%= book.shelf %>" /><br><br>
+
+    <textarea id="description" type="text" name="description" rows="10" cols="52">
+    <%= book.description %>
+    </textarea><br><br>
+
+    <button type="submit">Edit</button>
+</form>
