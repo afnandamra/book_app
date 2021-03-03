@@ -14,6 +14,9 @@ $(function () {
 
     $('.modal').click(() => {
         $('#editBook').hide();
-
     })
+
+    $('#editBook').click(function (event) {
+        event.stopPropagation();
+    });
 })
