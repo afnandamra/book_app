@@ -4,7 +4,7 @@ $(function () {
     $('#menu').click(() => {
         $('#menu').toggleClass('fa-bars');
         $('#menu').toggleClass('fa-times');
-        $('#menuItems').toggle();
+        $('#menuItems').fadeToggle(200);
     })
 
     $('#editBook').hide();
@@ -12,11 +12,7 @@ $(function () {
         $('#editBook').toggle();
     })
 
-    $('.modal').click(() => {
+    $('.modal').click(event => {
         $('#editBook').hide();
-    })
-
-    $('#editBook').click(function (event) {
-        event.stopPropagation();
-    });
+    }, 5000)
 })
