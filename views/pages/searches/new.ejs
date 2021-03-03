@@ -7,17 +7,23 @@
         <%- include('../../layout/header') %>
 
             <main>
-                <form action="/searches" method="POST">
-                    <label for="search">Search </label><br>
-                    <input type="text" name="search"><br>
+                <span class="header">Search by Title or Author</span>
 
-                    <label for="title">Title</label>
-                    <input type="radio" name="searchBy" value="intitle"><br>
+                <form action="/searches" method="POST" id="new">
 
-                    <label for="author">Author</label>
-                    <input type="radio" name="searchBy" value="inauthor"><br>
+                    <input type="text" name="search" placeholder="Enter a title or author" class="one">
 
-                    <button type="submit">Search the Google Book API</button>
+                    <div class="two">
+                        <label for="title">Title</label>
+                        <input type="radio" name="searchBy" value="intitle">
+                    </div>
+
+                    <div class="two">
+                        <label for="author">Author</label>
+                        <input type="radio" name="searchBy" value="inauthor">
+                    </div>
+
+                    <button type="submit" class="one">Search the Google Book API</button>
 
                 </form>
             </main>

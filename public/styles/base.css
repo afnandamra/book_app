@@ -1,12 +1,20 @@
-body {
-    background-color: rgb(245, 225, 199);
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+:root{
+    --yellow: #FECB62;
+    --pink: #212c38;
+    --dark: #010101;
+    --light: #EEEEEC;
+    --paleyellow: #ffe6b5;
 }
 
-header, footer{
-    height: 45px;
-    background-color: black;
-    position: sticky;
-    bottom: 0px;
+*{
+    box-sizing: border-box;
 }
+
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--light);
+    line-height: 1.5;
+    position: relative;
+}
+

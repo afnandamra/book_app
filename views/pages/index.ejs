@@ -6,6 +6,7 @@
     <body>
         <%- include('../layout/header') %>
             <main>
+                <span class="header">Saved Books</span>
                 <p>
                     Total Books: <%= bookList.length %>
                 </p>
@@ -18,11 +19,13 @@
                         <h3>
                             <%= book.author %>
                         </h3>
+                        <br>
+                        <br>
                         <a href="/books/<%= book.id %>">View Details</a>
                     </div>
                     <% }) %>
             </main>
-        <%- include('../layout/footer') %>
+            <%- include('../layout/footer') %>
 
     </body>
 

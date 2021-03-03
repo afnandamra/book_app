@@ -5,6 +5,7 @@
 * 1.0.0 - 28-02-2021 - search form and results
 * 2.0.0 - 01-03-2021 - Save Books to Database
 * 2.1.0 - 02-03-2021 - Update/Delete from Database
+* 2.1.1 - 02-03-2021 - CSS and jQuery added
 
 
 ## Overview
@@ -134,4 +135,4 @@ Finish time:
 Actual time needed to complete:
 
 ## Credits and Collaborations
-- Copied hamburger menu from [this site](https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/)
+- Copied hamburger menu from [this site](https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/) but didn't keep it

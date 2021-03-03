@@ -21,26 +21,15 @@
     <p>
         Bookshelf: <%= book.shelf %>
     </p>
-    <div>
+    <div id="buttons">
         <form>
-            <button type='button' onclick="toggleEdit()">Update Details</button>
+            <button type='button' id="edit">Update Details</button>
         </form>
         <form action="/books/<%= book.id %>?_method=DELETE" method='POST'>
             <button type="submit">Delete Book</button>
         </form>
     </div>
-    <div id='editBook'>
+    <div id='editBook' class="modal">
         <%- include('edit')-%>
     </div>
 </section>
-
-<script>
-    function toggleEdit() {
-        var x = document.getElementById("editBook");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>
